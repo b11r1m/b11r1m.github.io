@@ -3,115 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bug Bounty Researcher Profile</title>
+    <title> Bikram Sharma - Cyber Security Expert & Bug Bounty Researcher</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
         }
-        .container {
-            width: 80%;
-            margin: 0 auto;
+        .hero {
+            height: 100vh;
+            background: url('https://images.pexels.com/photos/38275/anonymous-studio-figure-photography-facial-mask-38275.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 24px;
+        }
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
             background: white;
             padding: 20px;
-            margin-top: 50px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
-        .header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #2c3e50;
-            color: white;
+        .section {
+            margin-bottom: 30px;
         }
-        .header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-        .profile-section {
-            margin: 20px 0;
-        }
-        .profile-section h2 {
-            margin-bottom: 10px;
+        .section h2 {
+            margin-bottom: 15px;
             color: #2c3e50;
-        }
-        .profile-section p {
-            font-size: 18px;
-            line-height: 1.6;
         }
         .skills {
             display: flex;
-            justify-content: space-around;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
         .skills div {
-            flex: 1;
-            padding: 10px;
+            background-color: #ecf0f1;
+            padding: 15px;
+            flex-basis: 30%;
+            margin-bottom: 15px;
+            border-radius: 8px;
             text-align: center;
-            border: 1px solid #ddd;
-            margin-right: 10px;
-        }
-        .skills div:last-child {
-            margin-right: 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .contact {
             text-align: center;
-            margin-top: 30px;
+            padding: 20px 0;
         }
         .contact a {
             text-decoration: none;
             color: white;
             background-color: #2c3e50;
-            padding: 10px 20px;
+            padding: 15px 30px;
             border-radius: 5px;
+            font-size: 18px;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>John Doe</h1>
-        <p>Bug Bounty Researcher</p>
+    <div class="hero">
+        <div>
+            <h1>Bikram Sharma</h1>
+            <p>Bug Bounty Researcher | Cybersecurity Enthusiast</p>
+        </div>
     </div>
 
-    <div class="profile-section">
+    <div class="content">
+    <div class="section about-me" style="background-color: #2ecc71; color: white; padding: 20px; border-radius: 8px;">
         <h2>About Me</h2>
         <p>
             I am a passionate bug bounty researcher with experience in identifying and exploiting security vulnerabilities across various platforms. My expertise includes web application security, network security, and penetration testing. I enjoy participating in bug bounty programs and helping organizations improve their security posture.
         </p>
     </div>
+    
 
-    <div class="profile-section">
-        <h2>Skills</h2>
-        <div class="skills">
-            <div>
-                <h3>Web Application Security</h3>
-                <p>Cross-Site Scripting (XSS), SQL Injection, CSRF, etc.</p>
+
+        <div class="section">
+            <h2>Skills & Expertise</h2>
+            <div class="skills">
+                <div>
+                    <h3>Web Application Security</h3>
+                    <p>XSS, LFI, RCE, SQL Injection, CSRF, etc.</p>
+                </div>
+                <div>
+                    <h3>Network Security</h3>
+                    <p>Port Scanning, Network Mapping, Vulnerability Assessment</p>
+                </div>
+                <div>
+                    <h3>Tools & Techniques</h3>
+                    <p>Burp Suite, Nmap, Metasploit, Wireshark</p>
+                </div>
             </div>
-            <div>
-                <h3>Network Security</h3>
-                <p>Port Scanning, Network Mapping, Vulnerability Assessment</p>
-            </div>
-            <div>
-                <h3>Tools</h3>
-                <p>Burp Suite, Nmap, Metasploit, Wireshark</p>
-            </div>
+        </div>
+
+        <div class="section">
+            <h2>Bug Bounty Programs</h2>
+            <p>
+                Known in the bug bounty world as b11r1m, I have successfully reported vulnerabilities in leading platforms like HackerOne, Bugcrowd, and private bounty programs. My contributions have been recognized by numerous organizations for improving their security.
+            </p>
+        </div>
+
+        <div class="section contact">
+            <h2>Contact Me</h2>
+            <p>For collaboration or vulnerability reports, feel free to reach out to me!</p>
+            <a href="mailto:b11r1m@yahoo.com">Get in Touch</a>
         </div>
     </div>
 
-    <div class="profile-section">
-        <h2>Bug Bounty Programs</h2>
-        <p>
-            I have successfully reported vulnerabilities in various bug bounty programs, including platforms such as HackerOne, Bugcrowd, and private bounty programs. My reports have contributed to improving the security of leading organizations.
-        </p>
+    <div class="footer">
+        <p>&copy; 2024 Bikram Sharma (b11r1m). All Rights Reserved.</p>
     </div>
-
-    <div class="contact">
-        <p>Contact me at: <strong>johndoe@example.com</strong></p>
-        <a href="mailto:johndoe@example.com">Get in Touch</a>
-    </div>
-</div>
 
 </body>
 </html>
