@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bikram Sharma 🇳🇵- Cyber Security Expert & Bug Bounty Researcher</title>
+    <title>Bikram Sharma 🇳🇵 - Cyber Security Expert & Bug Bounty Researcher</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -94,7 +94,7 @@
         }
         .social-media a {
             text-decoration: none;
-            color:  #f1e9e7;
+            color: #f1e9e7;
             font-size: 24px;
         }
         .social-media a:hover {
@@ -124,15 +124,12 @@
         .audio-controls button:hover {
             background-color: #007bff;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-        img {
-            border-radius: 5px;
+        .date {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -164,6 +161,7 @@
             <h1>Bikram Sharma 🇳🇵 </h1>
             <p>Bug Bounty Researcher | Cybersecurity Enthusiast</p>
         </div>
+        <div class="date" id="current-date"></div>
     </div>
 
     <div class="content">
@@ -202,7 +200,7 @@
         <div class="section">
             <h2>Hall of Fame</h2>
             <p>Showing the top engagements b11r1m has valid submissions against:</p>
-            <ul id="hall-of-fame-list">
+            <ul id="hall-of-fame-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; padding: 0;">
                 <script>
                     const photo = [
                         'photo/zevera.png',
@@ -305,8 +303,7 @@
                     photo.forEach(image => {
                         const listItem = document.createElement('li');
                         listItem.innerHTML = `
-                            <img src="${image}" alt="${image.split('/').pop().split('.')[0]}" style="width: 100px; height: auto; vertical-align: middle;">
-                            ${image.split('/').pop().split('.')[0]}
+                            <img src="${image}" alt="" style="width: 100%; height: auto; border-radius: 5px;">
                         `;
                         hallOfFameList.appendChild(listItem);
                     });
@@ -347,6 +344,15 @@
                 playButton.textContent = 'Play Music';
             }
         }
+
+        function updateDate() {
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+            const dateString = now.toLocaleDateString('en-US', options);
+            document.getElementById('current-date').textContent = dateString;
+        }
+
+        updateDate();
     </script>
 
 </body>
