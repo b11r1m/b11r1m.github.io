@@ -13,11 +13,10 @@
             background-size: cover;
             color: #333;
             position: relative;
-            padding-bottom: 80px; /* Ensure footer doesn’t overlap audio controls */
+            padding-bottom: 80px;
         }
         .hero {
             height: 100vh;
-            background: url('') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -37,7 +36,7 @@
             max-width: 900px;
             margin: 40px auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            background: rgba(255, 255, 255, 0.8);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
@@ -138,32 +137,35 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            height: 150px; /* Adjust the height based on your image size */
+            height: 150px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+            padding: 20px 0;
         }
 
-        /* Individual items in the banner */
+        /* Inner banner */
         .scrolling-banner-inner {
             display: flex;
-            animation: scrollBanner 80s linear infinite;
+            animation: scrollBanner 90s linear infinite;
         }
 
         .scrolling-banner img {
-            width: 120px;
+            width: 100px;
             height: auto;
-            margin: 0 20px; /* Space between images */
+            margin: 0 20px;
             border-radius: 10px;
             border: 2px solid white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            flex-shrink: 0; /* Prevents image from shrinking */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            flex-shrink: 0;
+            transition: transform 0.5s ease, width 0.5s ease;
         }
 
-        /* Animation for the scrolling effect */
+        /* Keyframes for scrolling animation */
         @keyframes scrollBanner {
             0% {
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%); /* Adjust for smooth transition */
+                transform: translateX(-50%);
             }
         }
     </style>
@@ -237,16 +239,14 @@
             <p>Showing the top engagements b11r1m has valid submissions against:</p>
             <!-- Scrolling banner container -->
             <div class="scrolling-banner">
-                <div class="scrolling-banner-inner" id="hall-of-fame-list">
-                    <!-- JavaScript will dynamically populate this list -->
-                </div>
+                <div class="scrolling-banner-inner" id="hall-of-fame-list"></div>
             </div>
         </div>
 
         <div class="section contact">
             <h2>Contact Me</h2>
-            <p>If you want to collaborate or learn more about my work, feel free to reach out!</p>
-            <a href="mailto:bikram@example.com">Email Me</a>
+            <p>If you want to reach out for collaboration or inquiries, feel free to contact me!</p>
+            <a href="mailto:your-email@example.com">Email Me</a>
         </div>
     </div>
 
@@ -264,8 +264,9 @@
     </div>
 
     <script>
-        // Set current date
-        document.getElementById("current-date").innerText = new Date().toLocaleDateString();
+        // Set current date with day name and seconds
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false };
+        document.getElementById("current-date").innerText = new Date().toLocaleDateString('en-US', options);
 
         const photo = [
             'photo/zevera.png', 'photo/yyuyuy.jpeg', 'photo/yyu.png', 'photo/yuyu.png',
@@ -301,11 +302,30 @@
         // Clone the photo array for seamless scrolling
         const fullPhotoList = [...photo, ...photo]; // Duplicate the array
 
+        // Append images to the banner
         fullPhotoList.forEach(image => {
             const imgElement = document.createElement('img');
             imgElement.src = image;
             hallOfFameList.appendChild(imgElement);
         });
+
+        // Make middle images bigger
+        function resizeImages() {
+            const images = document.querySelectorAll('.scrolling-banner img');
+            const bannerWidth = document.querySelector('.scrolling-banner').offsetWidth;
+            const middle = bannerWidth / 2;
+
+            images.forEach(image => {
+                const imageRect = image.getBoundingClientRect();
+                const imageMiddle = imageRect.left + (imageRect.width / 2);
+                const distanceFromMiddle = Math.abs(imageMiddle - middle);
+                const scaleFactor = Math.max(1 - distanceFromMiddle / middle, 0.6); // scale factor between 0.6 and 1
+                image.style.transform = `scale(${scaleFactor})`;
+            });
+        }
+
+        // Continuously adjust sizes as images move
+        setInterval(resizeImages, 100);
     </script>
 
 </body>
