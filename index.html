@@ -142,6 +142,11 @@
         }
 
         /* Individual items in the banner */
+        .scrolling-banner-inner {
+            display: flex;
+            animation: scrollBanner 30s linear infinite;
+        }
+
         .scrolling-banner img {
             width: 120px;
             height: auto;
@@ -155,16 +160,11 @@
         /* Animation for the scrolling effect */
         @keyframes scrollBanner {
             0% {
-                transform: translateX(100%);
+                transform: translateX(0);
             }
             100% {
-                transform: translateX(-100%);
+                transform: translateX(-50%); /* Adjust for smooth transition */
             }
-        }
-
-        /* Apply the animation */
-        .scrolling-banner {
-            animation: scrollBanner 30s linear infinite;
         }
     </style>
 </head>
@@ -236,20 +236,22 @@
             <h2>Hall of Fame</h2>
             <p>Showing the top engagements b11r1m has valid submissions against:</p>
             <!-- Scrolling banner container -->
-            <div id="hall-of-fame-list" class="scrolling-banner">
-                <!-- JavaScript will dynamically populate this list -->
+            <div class="scrolling-banner">
+                <div class="scrolling-banner-inner" id="hall-of-fame-list">
+                    <!-- JavaScript will dynamically populate this list -->
+                </div>
             </div>
         </div>
 
         <div class="section contact">
             <h2>Contact Me</h2>
-            <p>For collaboration or vulnerability reports, feel free to reach out to me!</p>
-            <a href="mailto:b11r1m@yahoo.com">Get in Touch</a>
+            <p>If you want to collaborate or learn more about my work, feel free to reach out!</p>
+            <a href="mailto:bikram@example.com">Email Me</a>
         </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 Bikram Sharma (b11r1m). All Rights Reserved.</p>
+        <p>&copy; 2024 Bikram Sharma. All Rights Reserved.</p>
     </div>
 
     <div class="audio-controls">
@@ -296,7 +298,10 @@
 
         const hallOfFameList = document.getElementById('hall-of-fame-list');
 
-        photo.forEach(image => {
+        // Clone the photo array for seamless scrolling
+        const fullPhotoList = [...photo, ...photo]; // Duplicate the array
+
+        fullPhotoList.forEach(image => {
             const imgElement = document.createElement('img');
             imgElement.src = image;
             hallOfFameList.appendChild(imgElement);
