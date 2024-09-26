@@ -256,77 +256,92 @@
 
     <div class="audio-controls">
         <audio controls>
-            <source src="your-audio-file.mp3" type="audio/mpeg">
+            <source src="https://pwdown.info/113851/Aaj%20Ki%20Raat%20-%20Stree%202.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <button onclick="document.querySelector('audio').play()">Play</button>
         <button onclick="document.querySelector('audio').pause()">Pause</button>
     </div>
 
-    <script>
-        // Set current date with day name and seconds
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false };
+<script>
+    // Set current date with day name, seconds, and formatted time
+    const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        second: 'numeric', 
+        hour12: false 
+    };
+    function updateDateTime() {
         document.getElementById("current-date").innerText = new Date().toLocaleDateString('en-US', options);
+    }
+    updateDateTime(); // Call it once to set initial value
+    setInterval(updateDateTime, 1000); // Update every second
 
-        const photo = [
-            'photo/zevera.png', 'photo/yyuyuy.jpeg', 'photo/yyu.png', 'photo/yuyu.png',
-            'photo/wewe.png', 'photo/werwe.png', 'photo/weqe.png', 'photo/visa.png',
-            'photo/uiu.png', 'photo/tyytyt.png', 'photo/tytytyty.png', 'photo/tyt.jpeg',
-            'photo/types.png', 'photo/ty4.png', 'photo/ty.png', 'photo/ttttt.png',
-            'photo/trtr.png', 'photo/THE.png', 'photo/t4.png', 'photo/t.png', 'photo/ssssss.png',
-            'photo/semer.png', 'photo/sdfsdfafdfadsf.jpeg', 'photo/sdfsdafsdf.png',
-            'photo/Screen Shot 2021-08-26 at 1.19.29 PM.png', 'photo/sales.png',
-            'photo/qwqw.jpeg', 'photo/porn.png', 'photo/play.png', 'photo/pl.png',
-            'photo/p.png', 'photo/opopop.png', 'photo/nutauk.png', 'photo/mp.png',
-            'photo/mos.png', 'photo/mode.png', 'photo/mind.jpeg', 'photo/marrio.png',
-            'photo/mai.png', 'photo/l.jpeg', 'photo/khan.png', 'photo/k.png', 'photo/jhn.png',
-            'photo/ioio.png', 'photo/ins.jpeg', 'photo/iiiiii.jpeg', 'photo/ii.png',
-            'photo/idrive.png', 'photo/hyatt.png', 'photo/house.png', 'photo/hjhjhjhj.png',
-            'photo/grindre.png', 'photo/gjgh.png', 'photo/gitlab.png', 'photo/gg.png',
-            'photo/ftr.png', 'photo/fin.png', 'photo/fgfdsgfssdf.jpeg', 'photo/fetcg.png',
-            'photo/f6.png', 'photo/exxxx.jpeg', 'photo/eweer.png', 'photo/epic.png',
-            'photo/epam.png', 'photo/eeez.png', 'photo/eeeeeeee.png', 'photo/eee.png',
-            'photo/digit.png', 'photo/dgdfgdfgfdgfdsg.png', 'photo/dfgdfg.png',
-            'photo/dde.png', 'photo/dd.png', 'photo/darlt.png', 'photo/cp.png',
-            'photo/compare.png', 'photo/chain.png', 'photo/carer.png', 'photo/BOUT.png',
-            'photo/balve.png', 'photo/awg.png', 'photo/as.jpeg', 'photo/appsss.png',
-            'photo/angri.png', 'photo/aerewr.png', 'photo/acti.png',
-            'photo/logo_github.png', 'photo/coolblue-logo.png', 'photo/celo-celo-logo.png',
-            'photo/Salto_No-Claim_Mult_Neg_Logo_RGB.png', 'photo/Redcare_Pharmacy_Red_RGB.png',
-            'photo/686094268269f7f3ae0a05ff011d42ab_openai-logomark_20x.png', 'photo/256x256–vinted-hdhe3.png',
-            'photo/256x256-personio-o49dj.png', 'photo/256x256-kahoot-4k30d (1).png', 'photo/esewa_logo.png'
-        ];
+    const photo = [
+        // Your existing photo array remains unchanged
+        'photo/zevera.png', 'photo/yyuyuy.jpeg', 'photo/yyu.png', 'photo/yuyu.png',
+        'photo/wewe.png', 'photo/werwe.png', 'photo/weqe.png', 'photo/visa.png',
+        'photo/uiu.png', 'photo/tyytyt.png', 'photo/tytytyty.png', 'photo/tyt.jpeg',
+        'photo/types.png', 'photo/ty4.png', 'photo/ty.png', 'photo/ttttt.png',
+        'photo/trtr.png', 'photo/THE.png', 'photo/t4.png', 'photo/t.png', 'photo/ssssss.png',
+        'photo/semer.png', 'photo/sdfsdfafdfadsf.jpeg', 'photo/sdfsdafsdf.png',
+        'photo/Screen Shot 2021-08-26 at 1.19.29 PM.png', 'photo/sales.png',
+        'photo/qwqw.jpeg', 'photo/porn.png', 'photo/play.png', 'photo/pl.png',
+        'photo/p.png', 'photo/opopop.png', 'photo/nutauk.png', 'photo/mp.png',
+        'photo/mos.png', 'photo/mode.png', 'photo/mind.jpeg', 'photo/marrio.png',
+        'photo/mai.png', 'photo/l.jpeg', 'photo/khan.png', 'photo/k.png', 'photo/jhn.png',
+        'photo/ioio.png', 'photo/ins.jpeg', 'photo/iiiiii.jpeg', 'photo/ii.png',
+        'photo/idrive.png', 'photo/hyatt.png', 'photo/house.png', 'photo/hjhjhjhj.png',
+        'photo/grindre.png', 'photo/gjgh.png', 'photo/gitlab.png', 'photo/gg.png',
+        'photo/ftr.png', 'photo/fin.png', 'photo/fgfdsgfssdf.jpeg', 'photo/fetcg.png',
+        'photo/f6.png', 'photo/exxxx.jpeg', 'photo/eweer.png', 'photo/epic.png',
+        'photo/epam.png', 'photo/eeez.png', 'photo/eeeeeeee.png', 'photo/eee.png',
+        'photo/digit.png', 'photo/dgdfgdfgfdgfdsg.png', 'photo/dfgdfg.png',
+        'photo/dde.png', 'photo/dd.png', 'photo/darlt.png', 'photo/cp.png',
+        'photo/compare.png', 'photo/chain.png', 'photo/carer.png', 'photo/BOUT.png',
+        'photo/balve.png', 'photo/awg.png', 'photo/as.jpeg', 'photo/appsss.png',
+        'photo/angri.png', 'photo/aerewr.png', 'photo/acti.png',
+        'photo/logo_github.png', 'photo/coolblue-logo.png', 'photo/celo-celo-logo.png',
+        'photo/Salto_No-Claim_Mult_Neg_Logo_RGB.png', 'photo/Redcare_Pharmacy_Red_RGB.png',
+        'photo/686094268269f7f3ae0a05ff011d42ab_openai-logomark_20x.png', 'photo/256x256–vinted-hdhe3.png',
+        'photo/256x256-personio-o49dj.png', 'photo/256x256-kahoot-4k30d (1).png', 'photo/esewa_logo.png'
+    ];
 
-        const hallOfFameList = document.getElementById('hall-of-fame-list');
+    const hallOfFameList = document.getElementById('hall-of-fame-list');
 
-        // Clone the photo array for seamless scrolling
-        const fullPhotoList = [...photo, ...photo]; // Duplicate the array
+    // Clone the photo array for seamless scrolling
+    const fullPhotoList = [...photo, ...photo]; // Duplicate the array
 
-        // Append images to the banner
-        fullPhotoList.forEach(image => {
-            const imgElement = document.createElement('img');
-            imgElement.src = image;
-            hallOfFameList.appendChild(imgElement);
+    // Append images to the banner
+    fullPhotoList.forEach(image => {
+        const imgElement = document.createElement('img');
+        imgElement.src = image;
+        hallOfFameList.appendChild(imgElement);
+    });
+
+    // Make middle images bigger
+    function resizeImages() {
+        const images = document.querySelectorAll('.scrolling-banner img');
+        const bannerWidth = document.querySelector('.scrolling-banner').offsetWidth;
+        const middle = bannerWidth / 2;
+
+        images.forEach(image => {
+            const imageRect = image.getBoundingClientRect();
+            const imageMiddle = imageRect.left + (imageRect.width / 2);
+            const distanceFromMiddle = Math.abs(imageMiddle - middle);
+            const scaleFactor = Math.max(1 - distanceFromMiddle / middle, 0.6); // scale factor between 0.6 and 1
+            image.style.transform = `scale(${scaleFactor})`;
         });
+    }
 
-        // Make middle images bigger
-        function resizeImages() {
-            const images = document.querySelectorAll('.scrolling-banner img');
-            const bannerWidth = document.querySelector('.scrolling-banner').offsetWidth;
-            const middle = bannerWidth / 2;
+    // Continuously adjust sizes as images move
+    setInterval(resizeImages, 100);
+</script>
 
-            images.forEach(image => {
-                const imageRect = image.getBoundingClientRect();
-                const imageMiddle = imageRect.left + (imageRect.width / 2);
-                const distanceFromMiddle = Math.abs(imageMiddle - middle);
-                const scaleFactor = Math.max(1 - distanceFromMiddle / middle, 0.6); // scale factor between 0.6 and 1
-                image.style.transform = `scale(${scaleFactor})`;
-            });
-        }
-
-        // Continuously adjust sizes as images move
-        setInterval(resizeImages, 100);
-    </script>
 
 </body>
 </html>
