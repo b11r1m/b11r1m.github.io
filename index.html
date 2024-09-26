@@ -131,6 +131,41 @@
             color: white;
             font-size: 18px;
         }
+
+        /* Scrolling banner container */
+        .scrolling-banner {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 150px; /* Adjust the height based on your image size */
+        }
+
+        /* Individual items in the banner */
+        .scrolling-banner img {
+            width: 120px;
+            height: auto;
+            margin: 0 20px; /* Space between images */
+            border-radius: 10px;
+            border: 2px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0; /* Prevents image from shrinking */
+        }
+
+        /* Animation for the scrolling effect */
+        @keyframes scrollBanner {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Apply the animation */
+        .scrolling-banner {
+            animation: scrollBanner 30s linear infinite;
+        }
     </style>
 </head>
 <body>
@@ -200,125 +235,10 @@
         <div class="section">
             <h2>Hall of Fame</h2>
             <p>Showing the top engagements b11r1m has valid submissions against:</p>
-            <ul id="hall-of-fame-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; padding: 0;">
-                <script>
-                    const photo = [
-                        'photo/zevera.png',
-                        'photo/yyuyuy.jpeg',
-                        'photo/yyu.png',
-                        'photo/yuyu.png',
-                        'photo/wewe.png',
-                        'photo/werwe.png',
-                        'photo/weqe.png',
-                        'photo/visa.png',
-                        'photo/uiu.png',
-                        'photo/tyytyt.png',
-                        'photo/tytytyty.png',
-                        'photo/tyt.jpeg',
-                        'photo/types.png',
-                        'photo/ty4.png',
-                        'photo/ty.png',
-                        'photo/ttttt.png',
-                        'photo/trtr.png',
-                        'photo/THE.png',
-                        'photo/t4.png',
-                        'photo/t.png',
-                        'photo/ssssss.png',
-                        'photo/semer.png',
-                        'photo/sdfsdfafdfadsf.jpeg',
-                        'photo/sdfsdafsdf.png',
-                        'photo/Screen Shot 2021-08-26 at 1.19.29 PM.png',
-                        'photo/sales.png',
-                        'photo/qwqw.jpeg',
-                        'photo/porn.png',
-                        'photo/play.png',
-                        'photo/pl.png',
-                        'photo/p.png',
-                        'photo/opopop.png',
-                        'photo/nutauk.png',
-                        'photo/mp.png',
-                        'photo/mos.png',
-                        'photo/mode.png',
-                        'photo/mind.jpeg',
-                        'photo/marrio.png',
-                        'photo/mai.png',
-                        'photo/l.jpeg',
-                        'photo/khan.png',
-                        'photo/k.png',
-                        'photo/jhn.png',
-                        'photo/ioio.png',
-                        'photo/ins.jpeg',
-                        'photo/iiiiii.jpeg',
-                        'photo/ii.png',
-                        'photo/idrive.png',
-                        'photo/hyatt.png',
-                        'photo/house.png',
-                        'photo/hjhjhjhj.png',
-                        'photo/grindre.png',
-                        'photo/gjgh.png',
-                        'photo/gitlab.png',
-                        'photo/gg.png',
-                        'photo/ftr.png',
-                        'photo/fin.png',
-                        'photo/fgfdsgfssdf.jpeg',
-                        'photo/fetcg.png',
-                        'photo/f6.png',
-                        'photo/exxxx.jpeg',
-                        'photo/eweer.png',
-                        'photo/epic.png',
-                        'photo/epam.png',
-                        'photo/eeez.png',
-                        'photo/eeeeeeee.png',
-                        'photo/eee.png',
-                        'photo/digit.png',
-                        'photo/dgdfgdfgfdgfdsg.png',
-                        'photo/dfgdfg.png',
-                        'photo/dde.png',
-                        'photo/dd.png',
-                        'photo/darlt.png',
-                        'photo/cp.png',
-                        'photo/compare.png',
-                        'photo/chain.png',
-                        'photo/carer.png',
-                        'photo/BOUT.png',
-                        'photo/balve.png',
-                        'photo/awg.png',
-                        'photo/as.jpeg',
-                        'photo/appsss.png',
-                        'photo/angri.png',
-                        'photo/aerewr.png',
-                        'photo/acti.png',
-                        'photo/a11a5f547ea25bb14fce3951b07a50f6288859555c2028feb0c3aad3e1aea36d.jpeg',
-                        'photo/8888.png',
-                        'photo/23.png',
-                        'photo/2daf6d0b2e2d8aa9085fc68fc00d6512a588646c7fa4c97e4ba2b62874800d17.png',
-                        'photo/2daf6d0b2e2d8aa9085fc68fc00d6512a5886u46c7fa4c97e4ba2b62874800d17.png',
-                        'photo/2daf6d0b2e2d8aa9085fc68fc00d6512a588k646c7fa4c97e4ba2b62874800d17.png',
-                        'photo/00b6749e985071da9658298639bcd86259f2801286430ea149f1f95ef8d271c3.jpeg',
-                        // New images added
-                        'photo/logo_github.png',
-                        'photo/coolblue-logo.png',
-                        'photo/celo-celo-logo.png',
-                        'photo/Salto_No-Claim_Mult_Neg_Logo_RGB.png',
-                        'photo/Redcare_Pharmacy_Red_RGB.png',
-                        'photo/686094268269f7f3ae0a05ff011d42ab_openai-logomark_20x.png',
-                        'photo/256x256–vinted-hdhe3.png',
-                        'photo/256x256-personio-o49dj.png',
-                        'photo/256x256-kahoot-4k30d (1).png',
-                        'photo/esewa_logo.png'  // Ensure a comma if there are more entries
-                    ];
-
-                    const hallOfFameList = document.getElementById('hall-of-fame-list');
-
-                    photo.forEach(image => {
-                        const listItem = document.createElement('li');
-                        listItem.innerHTML = `
-                            <img src="${image}" alt="" style="width: 100%; height: auto; border-radius: 5px;">
-                        `;
-                        hallOfFameList.appendChild(listItem);
-                    });
-                </script>
-            </ul>
+            <!-- Scrolling banner container -->
+            <div id="hall-of-fame-list" class="scrolling-banner">
+                <!-- JavaScript will dynamically populate this list -->
+            </div>
         </div>
 
         <div class="section contact">
@@ -332,37 +252,55 @@
         <p>&copy; 2024 Bikram Sharma (b11r1m). All Rights Reserved.</p>
     </div>
 
-    <!-- Background Music -->
     <div class="audio-controls">
-        <button onclick="toggleMusic()">Play Music</button>
-        <audio id="background-music" loop>
-            <source src="https://your-direct-audio-url-here.mp3" type="audio/mpeg">
+        <audio controls>
+            <source src="your-audio-file.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
+        <button onclick="document.querySelector('audio').play()">Play</button>
+        <button onclick="document.querySelector('audio').pause()">Pause</button>
     </div>
 
     <script>
-        const audioElement = document.getElementById('background-music');
-        const playButton = document.querySelector('.audio-controls button');
+        // Set current date
+        document.getElementById("current-date").innerText = new Date().toLocaleDateString();
 
-        function toggleMusic() {
-            if (audioElement.paused) {
-                audioElement.play();
-                playButton.textContent = 'Pause Music';
-            } else {
-                audioElement.pause();
-                playButton.textContent = 'Play Music';
-            }
-        }
+        const photo = [
+            'photo/zevera.png', 'photo/yyuyuy.jpeg', 'photo/yyu.png', 'photo/yuyu.png',
+            'photo/wewe.png', 'photo/werwe.png', 'photo/weqe.png', 'photo/visa.png',
+            'photo/uiu.png', 'photo/tyytyt.png', 'photo/tytytyty.png', 'photo/tyt.jpeg',
+            'photo/types.png', 'photo/ty4.png', 'photo/ty.png', 'photo/ttttt.png',
+            'photo/trtr.png', 'photo/THE.png', 'photo/t4.png', 'photo/t.png', 'photo/ssssss.png',
+            'photo/semer.png', 'photo/sdfsdfafdfadsf.jpeg', 'photo/sdfsdafsdf.png',
+            'photo/Screen Shot 2021-08-26 at 1.19.29 PM.png', 'photo/sales.png',
+            'photo/qwqw.jpeg', 'photo/porn.png', 'photo/play.png', 'photo/pl.png',
+            'photo/p.png', 'photo/opopop.png', 'photo/nutauk.png', 'photo/mp.png',
+            'photo/mos.png', 'photo/mode.png', 'photo/mind.jpeg', 'photo/marrio.png',
+            'photo/mai.png', 'photo/l.jpeg', 'photo/khan.png', 'photo/k.png', 'photo/jhn.png',
+            'photo/ioio.png', 'photo/ins.jpeg', 'photo/iiiiii.jpeg', 'photo/ii.png',
+            'photo/idrive.png', 'photo/hyatt.png', 'photo/house.png', 'photo/hjhjhjhj.png',
+            'photo/grindre.png', 'photo/gjgh.png', 'photo/gitlab.png', 'photo/gg.png',
+            'photo/ftr.png', 'photo/fin.png', 'photo/fgfdsgfssdf.jpeg', 'photo/fetcg.png',
+            'photo/f6.png', 'photo/exxxx.jpeg', 'photo/eweer.png', 'photo/epic.png',
+            'photo/epam.png', 'photo/eeez.png', 'photo/eeeeeeee.png', 'photo/eee.png',
+            'photo/digit.png', 'photo/dgdfgdfgfdgfdsg.png', 'photo/dfgdfg.png',
+            'photo/dde.png', 'photo/dd.png', 'photo/darlt.png', 'photo/cp.png',
+            'photo/compare.png', 'photo/chain.png', 'photo/carer.png', 'photo/BOUT.png',
+            'photo/balve.png', 'photo/awg.png', 'photo/as.jpeg', 'photo/appsss.png',
+            'photo/angri.png', 'photo/aerewr.png', 'photo/acti.png',
+            'photo/logo_github.png', 'photo/coolblue-logo.png', 'photo/celo-celo-logo.png',
+            'photo/Salto_No-Claim_Mult_Neg_Logo_RGB.png', 'photo/Redcare_Pharmacy_Red_RGB.png',
+            'photo/686094268269f7f3ae0a05ff011d42ab_openai-logomark_20x.png', 'photo/256x256–vinted-hdhe3.png',
+            'photo/256x256-personio-o49dj.png', 'photo/256x256-kahoot-4k30d (1).png', 'photo/esewa_logo.png'
+        ];
 
-        function updateDate() {
-            const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-            const dateString = now.toLocaleDateString('en-US', options);
-            document.getElementById('current-date').textContent = dateString;
-        }
+        const hallOfFameList = document.getElementById('hall-of-fame-list');
 
-        updateDate();
+        photo.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image;
+            hallOfFameList.appendChild(imgElement);
+        });
     </script>
 
 </body>
